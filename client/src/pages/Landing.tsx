@@ -50,7 +50,7 @@ const PRICING = [
 ]
 
 export default function Landing() {
-    console.log("Current API URL>>hello");
+    console.log("Current API URL>>");
 
     return (
         <div className="landing-page">
