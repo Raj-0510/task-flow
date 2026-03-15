@@ -50,6 +50,8 @@ const PRICING = [
 ]
 
 export default function Landing() {
+    console.log("Current API URL>>hello");
+
     return (
         <div className="landing-page">
             {/* Navigation */}
@@ -77,7 +79,7 @@ export default function Landing() {
                     <Link to="/register" className="btn btn-primary btn-lg w-full sm:w-auto">Start for free</Link>
                     <a href="#features" className="btn btn-secondary btn-lg w-full sm:w-auto">See features</a>
                 </div>
-                
+
                 {/* Dashboard Preview mockup */}
                 <div className="hero-mockup mt-16">
                     <div className="mockup-window">
@@ -133,7 +135,7 @@ export default function Landing() {
                                     <span className="text-slate-400 text-sm">{plan.period}</span>
                                 </div>
                                 <p className="text-sm text-slate-400 mt-4">{plan.description}</p>
-                                
+
                                 <ul className="mt-8 space-y-3 flex-1 mb-8">
                                     {plan.features.map((f, i) => (
                                         <li key={i} className="flex gap-2 text-sm text-slate-300">
