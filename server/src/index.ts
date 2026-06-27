@@ -38,6 +38,11 @@ app.get("/", (req, res) => {
   res.send("Backend working ✅");
 });
 
+// Public health endpoint
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "ok", uptime: process.uptime(), timestamp: Date.now() });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/projects", projectRoutes);
