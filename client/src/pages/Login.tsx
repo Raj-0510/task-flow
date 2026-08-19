@@ -26,6 +26,29 @@ export default function Login() {
       <div className="auth-card">
         <h1>Welcome back</h1>
 
+        <div className="demo-credentials-banner">
+          <div className="demo-credentials-header">
+            <strong>Testing / Trial Credentials</strong>
+          </div>
+          <p className="demo-credentials-text">
+            To test the application safely without using your personal info, feel free to use this demo account:
+          </p>
+          <div className="demo-credentials-fields">
+            <div><span>Email:</span> <code>demo@taskflow.com</code></div>
+            <div><span>Password:</span> <code>demo123</code></div>
+          </div>
+          <button
+            type="button"
+            className="demo-autofill-btn"
+            onClick={() => {
+              setEmail('demo@taskflow.com')
+              setPassword('demo123')
+            }}
+          >
+            Auto-fill Demo Credentials
+          </button>
+        </div>
+
         <form onSubmit={handleSubmit} className="auth-form">
           <input
             type="email"

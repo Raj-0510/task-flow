@@ -27,6 +27,22 @@ export default function Register() {
       <div className="auth-card">
         <h1>Create your account</h1>
 
+        <div className="demo-credentials-banner">
+          <div className="demo-credentials-header">
+            <strong>Testing / Trial Account</strong>
+          </div>
+          <p className="demo-credentials-text">
+            Want to test without registering? You don't need to enter unknown personal details! Use our pre-configured demo credentials on the login screen:
+          </p>
+          <div className="demo-credentials-fields">
+            <div><span>Email:</span> <code>demo@taskflow.com</code></div>
+            <div><span>Password:</span> <code>demo123</code></div>
+          </div>
+          <Link to="/login" className="demo-autofill-btn">
+            Go to Login with Demo Account
+          </Link>
+        </div>
+
         <form onSubmit={handleSubmit} className="auth-form">
           <input
             type="text"

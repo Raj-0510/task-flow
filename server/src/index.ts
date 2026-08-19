@@ -20,14 +20,8 @@ app.use(cors());
 app.use("/api/stripe/webhook", express.raw({ type: "application/json" }));
 
 app.use(express.json());
-// Ensure the logs directory exists
-const logDir = path.resolve(process.cwd(), "logs");
-if (!fs.existsSync(logDir)) {
-  fs.mkdirSync(logDir, { recursive: true });
-}
-
 // Create a write stream (in append mode) for Morgan logs
-const accessLogStream = fs.createWriteStream(path.join(logDir, "morgan.log"), { flags: "a" });
+const accessLogStream = fs.createWriteStream(path.resolve(process.cwd(), "logs", "morgan.log"), { flags: "a" });
 
 // Log to console
 app.use(morgan('combined'));
@@ -38,6 +32,11 @@ app.get("/", (req, res) => {
   res.send("Backend working ✅");
 });
 
+// Public health endpoint
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "ok", uptime: process.uptime(), timestamp: Date.now() });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/projects", projectRoutes);
@@ -45,7 +44,10 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/stripe", stripeRoutes);
 app.use("/api", taskRoutes);
 
+import { seedDemoAccount } from "./seedDemo";
+
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+  await seedDemoAccount();
   console.log("Server running on " + PORT + " 🚀");
 });

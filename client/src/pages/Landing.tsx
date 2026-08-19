@@ -57,7 +57,7 @@ export default function Landing() {
             {/* Navigation */}
             <nav className="landing-nav">
                 <div className="brand">
-                    <span className="brand-icon">⚡</span> TaskFlow
+                    TaskFlow
                 </div>
                 <div className="nav-links">
                     <Link to="/login" className="nav-link">Log in</Link>
@@ -67,7 +67,7 @@ export default function Landing() {
 
             {/* Hero Section */}
             <header className="hero-section text-center">
-                <div className="glass-pill mx-auto mb-6">v2.0 is now live 🎉</div>
+                <div className="glass-pill mx-auto mb-6">v2.0 is now live</div>
                 <h1 className="hero-title">
                     Manage Tasks With <span className="text-gradient">Lightning Speed</span>
                 </h1>
@@ -78,6 +78,14 @@ export default function Landing() {
                 <div className="hero-actions mt-10 flex flex-col sm:flex-row gap-4 justify-center px-4">
                     <Link to="/register" className="btn btn-primary btn-lg w-full sm:w-auto">Start for free</Link>
                     <a href="#features" className="btn btn-secondary btn-lg w-full sm:w-auto">See features</a>
+                </div>
+
+                {/* Demo credentials pill for instant testing */}
+                <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-indigo-500/30 text-xs sm:text-sm text-slate-300 backdrop-blur">
+                    <span>Want to test without registering? Use demo account:</span>
+                    <code className="bg-indigo-950/80 text-indigo-300 px-2 py-0.5 rounded border border-indigo-500/20 font-mono">demo@taskflow.com</code>
+                    <span className="text-slate-400">/</span>
+                    <code className="bg-indigo-950/80 text-indigo-300 px-2 py-0.5 rounded border border-indigo-500/20 font-mono">demo123</code>
                 </div>
 
                 {/* Dashboard Preview mockup */}
